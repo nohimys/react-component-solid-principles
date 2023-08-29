@@ -128,7 +128,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-.idea/# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+.idea/
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules

@@ -7,11 +7,16 @@ interface ICartExpandedViewProps extends ICartViewProps{
     onSaveCartCompleted: Function;
 }
 
+//Responsibilities:
+//Render Total Amount
+//Render Item list
+//Render Save Cart Button
+//Render Checkout Button
 const CartExpandedView = (props: ICartExpandedViewProps) => {
     return (
         <CartComponent {...props} >
             {
-                () => {
+                (totalAmount: number) => {
                     return (
                         <div>
                             <ol>
@@ -22,7 +27,7 @@ const CartExpandedView = (props: ICartExpandedViewProps) => {
                                 }
                             </ol>
 
-                            <div>Total: {getTotalWithDiscount(props.itemList, 0)}</div>
+                            <div>Total: {totalAmount}</div>
 
                             <button onClick={() => {CartApi.saveCart(props.itemList)}}>Save Cart</button>
                             <button onClick={() => {CartApi.checkoutCart(props.itemList)}}>Checkout</button>

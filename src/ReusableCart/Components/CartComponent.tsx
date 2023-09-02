@@ -1,3 +1,4 @@
+import {getTotalWithDiscount} from "../Utils/Calculations";
 
 export interface IConsumerStyleProps {
     backgroundColour: string;
@@ -19,6 +20,8 @@ export interface ICartViewProps {
 }
 
 //Responsibilities:
+//Render Base Skeleton
+//Provide Total Amount to Child Components
 const CartComponent = (props: ICartViewProps) => {
     const styles = {
         backgroundColor:props.consumerStyleProps.backgroundColour,
@@ -30,7 +33,7 @@ const CartComponent = (props: ICartViewProps) => {
         <div style={styles}>
             <h6> {props.cartName + ' : ' + props.clientId} </h6>
             {
-                 props.children()
+                 props.children(getTotalWithDiscount(props.itemList, 0))
             }
         </div>
     );

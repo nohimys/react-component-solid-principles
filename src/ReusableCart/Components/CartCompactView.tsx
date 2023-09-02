@@ -1,5 +1,4 @@
 import CartComponent, {ICartViewProps} from "./CartComponent";
-import {getTotalWithDiscount} from "../Utils/Calculations";
 
 interface ICartCompactViewProps extends ICartViewProps{
     onExpandedViewTrigger: Function;
@@ -12,10 +11,10 @@ const CartCompactView = (props: ICartCompactViewProps) => {
     return (
         <CartComponent {...props} >
             {
-                () => {
+                (totalAmount: number) => {
                     return (
                         <div>
-                            <span>Total: {getTotalWithDiscount(props.itemList, 0)}</span>
+                            <span>Total: {totalAmount}</span>
 
                             <button onClick={() => console.log('You will be redirected to Full Cart View')}>Show Full Cart</button>
                         </div>

@@ -1,11 +1,17 @@
-import {IProduct} from "../Components/CartComponent";
+//Responsibilities:
+//Calculate total
 
-export const getTotalWithDiscount = (items: IProduct[], discountPercentage: number) : number => {
+import IProduct from "../modals/IProduct";
+
+export const getTotalWithDiscount = (
+    items: IProduct[],
+    discountPercentage: number
+): number => {
     const total = items.reduce((result, item) => {
         return result + item.price;
-    },0)
+    }, 0)
 
-    if(discountPercentage === 0){
+    if (discountPercentage === 0) {
         return total;
     }
 

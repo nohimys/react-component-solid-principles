@@ -1,17 +1,17 @@
-import CartComponent, {ICartViewProps} from "./CartComponent";
-import {getTotalWithDiscount} from "../Utils/Calculations";
-import CartApi from "../Utils/CartApi";
-
-interface ICartExpandedViewProps extends ICartViewProps{
-    onCheckoutCompleted: Function;
-    onSaveCartCompleted: Function;
-}
-
 //Responsibilities:
 //Render Total Amount
 //Render Item list
 //Render Save Cart Button
 //Render Checkout Button
+
+import CartComponent, {ICartViewProps} from "./CartComponent";
+import CartApi from "../Utils/CartApi";
+
+interface ICartExpandedViewProps extends ICartViewProps {
+    onCheckoutCompleted: Function;
+    onSaveCartCompleted: Function;
+}
+
 const CartExpandedView = (props: ICartExpandedViewProps) => {
     return (
         <CartComponent {...props} >
@@ -22,15 +22,25 @@ const CartExpandedView = (props: ICartExpandedViewProps) => {
                             <ol>
                                 {
                                     props.itemList.map(product => {
-                                        return <li key={product.name}> {`${product.name} --- ${product.price}`}</li>
+                                        return (
+                                            <li key={product.name}>
+                                                {`${product.name} --- ${product.price}`}
+                                            </li>
+                                        );
                                     })
                                 }
                             </ol>
 
                             <div>Total: {totalAmount}</div>
 
-                            <button onClick={() => {CartApi.saveCart(props.itemList)}}>Save Cart</button>
-                            <button onClick={() => {CartApi.checkoutCart(props.itemList)}}>Checkout</button>
+                            <button onClick={() => {
+                                CartApi.saveCart(props.itemList)
+                            }}>Save Cart
+                            </button>
+                            <button onClick={() => {
+                                CartApi.checkoutCart(props.itemList)
+                            }}>Checkout
+                            </button>
                         </div>
                     )
                 }

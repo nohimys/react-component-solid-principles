@@ -1,12 +1,13 @@
-import CartComponent, {ICartViewProps} from "./CartComponent";
-
-interface ICartCompactViewProps extends ICartViewProps{
-    onExpandedViewTrigger: Function;
-}
-
 //Responsibilities:
 //Render Total Amount
 //Render Show Full Cart Button
+
+import CartComponent, {ICartViewProps} from "./CartComponent";
+
+interface ICartCompactViewProps extends ICartViewProps {
+    onExpandedViewTrigger: Function;
+}
+
 const CartCompactView = (props: ICartCompactViewProps) => {
     return (
         <CartComponent {...props} >
@@ -16,7 +17,9 @@ const CartCompactView = (props: ICartCompactViewProps) => {
                         <div>
                             <span>Total: {totalAmount}</span>
 
-                            <button onClick={() => console.log('You will be redirected to Full Cart View')}>Show Full Cart</button>
+                            <button onClick={() => console.log('You will be redirected to Full Cart View')}>Show Full
+                                Cart
+                            </button>
                         </div>
                     )
                 }

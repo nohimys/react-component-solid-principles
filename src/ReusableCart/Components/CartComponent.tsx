@@ -1,4 +1,9 @@
+//Responsibilities:
+//Render base skeleton sharing common capabilities to all components
+//Provide Total Amount to associated components
+
 import {getTotalWithDiscount} from "../Utils/Calculations";
+import IProduct from "../modals/IProduct";
 
 export interface IConsumerStyleProps {
     backgroundColour: string;
@@ -6,26 +11,18 @@ export interface IConsumerStyleProps {
     height: number
 }
 
-export interface IProduct {
-    name: string;
-    price: number
-}
-
 export interface ICartViewProps {
     cartName: string;
     clientId: number;
     consumerStyleProps: IConsumerStyleProps;
     itemList: IProduct[];
-    children?:any
+    children?: Function
 }
 
-//Responsibilities:
-//Render Base Skeleton
-//Provide Total Amount to Child Components
 const CartComponent = (props: ICartViewProps) => {
     const styles = {
-        backgroundColor:props.consumerStyleProps.backgroundColour,
-        fontFamily:props.consumerStyleProps.font,
+        backgroundColor: props.consumerStyleProps.backgroundColour,
+        fontFamily: props.consumerStyleProps.font,
         height: `${props.consumerStyleProps.height}px`
     };
 
@@ -33,7 +30,8 @@ const CartComponent = (props: ICartViewProps) => {
         <div style={styles}>
             <h6> {props.cartName + ' : ' + props.clientId} </h6>
             {
-                 props.children(getTotalWithDiscount(props.itemList, 0))
+                props.children &&
+                props.children(getTotalWithDiscount(props.itemList, 0))
             }
         </div>
     );

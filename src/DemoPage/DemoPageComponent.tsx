@@ -1,7 +1,7 @@
 import './DemoPageComponent.css'
 import CartCompactView from "../ReusableCart/Components/CartCompactView";
 import CartExpandedView from "../ReusableCart/Components/CartExpandedView";
-import {IProduct} from "../ReusableCart/Components/CartComponent";
+import IProduct from "../ReusableCart/modals/IProduct";
 
 const DemoPageComponent = () => {
 

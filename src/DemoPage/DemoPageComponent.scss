@@ -1,0 +1,25 @@
+.demo-page-component{
+
+  h1{
+    margin: auto;
+    width: 200px;
+  }
+
+  .consumers{
+    width: auto;
+    margin: 10px;
+
+    .views{
+
+      height: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+
+      div{
+        border: 1px solid red;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,17 @@
+.demo-page-component h1 {
+  margin: auto;
+  width: 200px;
+}
+.demo-page-component .consumers {
+  width: auto;
+  margin: 10px;
+}
+.demo-page-component .consumers .views {
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.demo-page-component .consumers .views div {
+  border: 1px solid red;
+}
